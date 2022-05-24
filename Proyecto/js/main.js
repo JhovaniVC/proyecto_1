@@ -165,7 +165,7 @@
 
 			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-			L.marker([ 20.674739, -103.387566 ]).addTo(map).bindPopup('GDLWebCAMP 2018').openPopup();
+			L.marker([ 20.674739, -103.387566 ]).addTo(map).bindPopup('GaelGam3r67').openPopup();
 			// .bindTooltip('GDLWebCamp 2018, Boletos ya disponibles')
 			// .openTooltip();
 		}
