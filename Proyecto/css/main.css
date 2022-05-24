@@ -544,6 +544,10 @@ div.invitado:hover p {
   left: 0;
   background-repeat: no-repeat;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  -webkit-filter: brightness(.8);
+  filter: brightness(.8);
 }
 div.contador {
   position: relative;
