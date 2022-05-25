@@ -258,7 +258,7 @@
 
 		//Cuenta Regresiva
 
-		$('.cuenta-regresiva').countdown('2017/12/10 09:00:00', function(event) {
+		$('.cuenta-regresiva').countdown('2022/06/28 10:00:00', function(event) {
 			$('#dias').html(event.strftime('%D'));
 			$('#horas').html(event.strftime('%H'));
 			$('#minutos').html(event.strftime('%M'));
