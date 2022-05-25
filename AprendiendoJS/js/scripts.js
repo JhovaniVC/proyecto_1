@@ -1,4 +1,14 @@
-let aprendiendo = 'Aprendiendo',
-    tecnologia = 'JavaScript';
+//Object Literal
+const persona = {
+    nombre: 'Alex',
+    apellido: 'Velazuquez',
+    edad: 16,
+    trabajo: true,
+    musica: ['Trance', 'Rock', 'Grunge'],
+    hogar: {
+        ciudad: 'Cancún',
+        pais: 'México'
+    }
+}
 
-console.log(aprendiendo + ' '+ tecnologia);
+console.log(persona['hogar']['ciudad']);
