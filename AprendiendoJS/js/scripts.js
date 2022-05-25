@@ -1,26 +1,18 @@
 
-//function declaration 
-saludar('Alex', 'Desarrollador Web');
-saludar('Gael');
-saludar('José', 'Medico');
-saludar();
-
-function saludar(nombre = 'Visitante', trabajo = 'No Sabemos!'){
-    console.log('Hola '+ nombre + ' tu trabajo es ' +trabajo);
+const musica = {
+    reproducir: function(cancion){
+        console.log('Reproduciendo la cancion: ' + cancion);
+    },
+    pausar: function(){
+        console.log('Paused...');
+    }
+}
+//los metodos tambien pueden ir por fuera 
+musica.borrar = function(id){
+    console.log('Borrando la cancion con el ID : ' + id)
 }
 
-
-
-// function expression 
-
-const suma = function(a = 0, b = 0){
-    console.log(a + b);
-}
-suma(10, 20);
-suma(30, 50);
-suma(100, 200);
-
-//IIFE
-(function(tecnologia){
-    console.log('AQUI ESTOY!! aprendiendo ' + tecnologia);
-})('JavaScript');
+musica.reproducir('No idea');
+musica.pausar();
+musica.reproducir('Otra Noche'); 
+musica.borrar(121);
