@@ -405,6 +405,7 @@ section.programa {
 div.contenedor-video {
   max-width: 100%;
   overflow-x: hidden;
+  
 }
 div.contenido-programa {
   position: absolute;
