@@ -1,24 +1,11 @@
 
-// // funcion declaracion 
-// saludar();
-// saludar('Pedro', 'Médico'); 
-// saludar('Alejandra', 'Veterinaria');
-// saludar('Laura'); 
 
-// function saludar(nombre = 'Visitante' , trabajo = 'No Sabemos!'){
-//     console.log('Hola '+ nombre + ' tu trabako es ' + trabajo);
-// }
 
-//funcion expresion 
-const suma = (a=0, b=0) => {
-    return a + b; 
-}
-const multiplicar = (a) =>{
-    return a * 5;
-}
-let total;
+let viajando = (destino) =>  'Viajando a la ciudad de ' + destino;
 
-let resultadoSuma =  suma(1, 3);
-total = multiplicar(resultadoSuma);
 
-console.log(total);
+let viaje; 
+viaje = viajando ('Londres');
+viaje = viajando('Paris'); 
+
+console.log(viaje);
