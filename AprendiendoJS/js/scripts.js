@@ -1,18 +1,24 @@
 
-const musica = {
-    reproducir: function(cancion){
-        console.log('Reproduciendo la cancion: ' + cancion);
-    },
-    pausar: function(){
-        console.log('Paused...');
-    }
-}
-//los metodos tambien pueden ir por fuera 
-musica.borrar = function(id){
-    console.log('Borrando la cancion con el ID : ' + id)
-}
+// // funcion declaracion 
+// saludar();
+// saludar('Pedro', 'Médico'); 
+// saludar('Alejandra', 'Veterinaria');
+// saludar('Laura'); 
 
-musica.reproducir('No idea');
-musica.pausar();
-musica.reproducir('Otra Noche'); 
-musica.borrar(121);
+// function saludar(nombre = 'Visitante' , trabajo = 'No Sabemos!'){
+//     console.log('Hola '+ nombre + ' tu trabako es ' + trabajo);
+// }
+
+//funcion expresion 
+const suma = (a=0, b=0) => {
+    return a + b; 
+}
+const multiplicar = (a) =>{
+    return a * 5;
+}
+let total;
+
+let resultadoSuma =  suma(1, 3);
+total = multiplicar(resultadoSuma);
+
+console.log(total);
