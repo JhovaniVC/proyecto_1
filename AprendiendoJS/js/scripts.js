@@ -1,23 +1,26 @@
-//Template Strings 
 
-const nombre = 'Pedro',
-    trabajo = 'Desarrollador Web';
+//function declaration 
+saludar('Alex', 'Desarrollador Web');
+saludar('Gael');
+saludar('José', 'Medico');
+saludar();
 
-console.log('Nombre: '+nombre+ ', '+'Trabajo: ' + trabajo);
-console.log(`Nombre: ${nombre}, Trabajo: ${trabajo}`);
+function saludar(nombre = 'Visitante', trabajo = 'No Sabemos!'){
+    console.log('Hola '+ nombre + ' tu trabajo es ' +trabajo);
+}
 
-const contenedorApp = document.querySelector('#mensaje');
 
-let html = '<ul>' +
-                    '<li>Nombre: '+ nombre + '</li>' +
-                    '<li>Trabajo: '+ trabajo + '</li>' +
-                    '</ul>';
 
-let html2 = `<ul>
-            <li>Nombre: ${nombre}</li>
-            <li>Trabajo: ${trabajo}</li>
+// function expression 
 
-        </ul>`;
+const suma = function(a = 0, b = 0){
+    console.log(a + b);
+}
+suma(10, 20);
+suma(30, 50);
+suma(100, 200);
 
-contenedorApp.innerHTML = html2; 
- 
+//IIFE
+(function(tecnologia){
+    console.log('AQUI ESTOY!! aprendiendo ' + tecnologia);
+})('JavaScript');
