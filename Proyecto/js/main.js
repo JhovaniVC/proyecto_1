@@ -161,11 +161,11 @@
 
 		// Mapa
 		if (document.getElementById('mapa')) {
-			var map = L.map('mapa').setView([ 20.674739, -103.387566 ], 16);
+			var map = L.map('mapa').setView([19.580318, -88.044090 ], 13);
 
 			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
-			L.marker([ 20.674739, -103.387566 ]).addTo(map).bindPopup('GaelGam3r67').openPopup();
+			L.marker([ 19.580318, -88.044090 ]).addTo(map).bindPopup('GaelGam3r67').openPopup();
 			// .bindTooltip('GDLWebCamp 2018, Boletos ya disponibles')
 			// .openTooltip();
 		}
@@ -258,7 +258,7 @@
 
 		//Cuenta Regresiva
 
-		$('.cuenta-regresiva').countdown('2017/12/10 09:00:00', function(event) {
+		$('.cuenta-regresiva').countdown('2022/06/28 10:00:00', function(event) {
 			$('#dias').html(event.strftime('%D'));
 			$('#horas').html(event.strftime('%H'));
 			$('#minutos').html(event.strftime('%M'));
