@@ -32,7 +32,7 @@
     // for(var i = 0; i < enlacesSidebar.length; i++){
     //   enlacesSidebar[i].setAttribute('href', 'http://www.google.com');
     // }
-
+/*
     var logo = document.querySelector('.logo');
     console.log(logo); 
 
@@ -41,8 +41,25 @@
 
     var enlaces = document.querySelector('a');
     console.log(enlaces);
+*/
 
+/*
+    var enlace = document.querySelectorAll('a');
+    
+    for(var i = 0; i < enlace.length; i++){
+      console.log(enlace[i].innerText);
+    }
+*/
+    var enlaces = document.querySelectorAll('#menu ul li a')[0];
+    console.log(enlaces.nodeType);
+    console.log(enlaces.nodeName);
+    console.log(enlaces.attributes);
+    console.log(enlaces.firstChild);
+    console.log(enlaces.firstChild.nodeValue);
 
+    enlaces.firstChild.nodeValue = "Home";
+    enlaces.id = "mi_id";
+    
 
   });
   
