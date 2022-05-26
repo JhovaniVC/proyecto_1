@@ -1,30 +1,15 @@
-//Object literal
+// Destructuring
 
-const persona = {
-    nombre: 'Juan',
-    edad: 80,
-    anioNacimiento: function(){
-        return new Date().getFullYear() - this.edad;
-    }
+const cliente = {
+    nombre: 'Alejandra',
+    tipo: 'Premium'
 }
 
-console.log(persona.anioNacimiento());
+console.log(cliente); 
 
-//Object Constructor
-class Tarea{
-    constructor(nombre, urgencia){
-        this.nombre = nombre;
-        this.urgencia = urgencia; 
-    }
-    
-}
+// crear la variable 
+const nombreCliente = cliente.nombre;
 
-//crear nuevas tareas 
-const tarea1 = new Tarea('Aprender JavaScript', 'Urgente ');
-const tarea2 = new Tarea('Preparar Café', 'Urgente ');
-const tarea3 = new Tarea('Pasear al perro', 'Media ');
-const tarea4 = new Tarea('Conocer a mis suegros', '0 ');
-console.log(tarea1);
-console.log(tarea2);
-console.log(tarea3);
-console.log(tarea4);
+let {nombre} = cliente;
+
+console.log(nombre);
