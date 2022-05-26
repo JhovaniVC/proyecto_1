@@ -1,18 +1,27 @@
+descargarUsuarios(30);
 
-const musica = {
-    reproducir: function(cancion){
-        console.log('Reproduciendo la cancion: ' + cancion);
-    },
-    pausar: function(){
-        console.log('Paused...');
-    }
-}
-//los metodos tambien pueden ir por fuera 
-musica.borrar = function(id){
-    console.log('Borrando la cancion con el ID : ' + id)
-}
 
-musica.reproducir('No idea');
-musica.pausar();
-musica.reproducir('Otra Noche'); 
-musica.borrar(121);
+function descargarUsuarios(cantidad){
+    const api = `https://api.randomuser.me/?nat=US&results=${cantidad} `;
+
+    //llamado a fetch 
+    fetch(api)
+        .then(respuesta => respuesta.json())
+        .then(datos => imprimirHTML(datos.results)); 
+}
+function imprimirHTML(datos){
+    datos.forEach(usuario => {
+        console.log(usuario);
+        const li = document.createElement('li');
+
+        const { name: {first}, name: { last }, picture: {medium}, nat } = usuario;
+
+        li.innerHTML = `
+            Nombre: ${first} ${last}
+            País: ${nat}
+            imagen: <img src="${medium}">
+        `;
+
+        document.querySelector('#app').appendChild(li);
+    });
+}
