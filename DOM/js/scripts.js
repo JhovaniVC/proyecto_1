@@ -109,7 +109,7 @@
     sidebar.insertBefore(nuevoElemento, sidebar.childNodes[1]);
   }
   */
-
+/*
   //eliminar nodos 
   var primerPost = document.querySelector ('main article');
   console.log(primerPost); 
@@ -119,7 +119,21 @@
   var enlaces = document.querySelector('#navegacion nav ul li a')[10];
   console.log(enlaces);
   enlaces.parentNode.removeChild(enlaces);
-    
+*/
+
+/*
+var viejoNodo = document.querySelector('main h2');
+var nuevoNodo = document.querySelector('footer h2');
+viejoNodo.parentNode.removeChild(nuevoNodo, viejoNodo);
+**/
+// reemplazar nodo con uno nuevo
+
+var nuevoTitulo = document.createElement('H2');
+var nuevoTexto = document.createTextNode('Hola Mundo');
+nuevoTitulo.appendChild(nuevoTexto);
+
+var viejoNodo = document.querySelector('main h2');
+viejoNodo.parentNode.replaceChild(nuevoTitulo, viejoNodo);
 
   });
   
