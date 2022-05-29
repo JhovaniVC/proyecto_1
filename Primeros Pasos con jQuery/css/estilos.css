@@ -26,6 +26,7 @@ div.contenido {
 /** Navegacion **/
 .navegacion{
   background-color: #db008d;
+  /* display: none; */
 }
 nav {
   width: 1200px;
@@ -179,4 +180,7 @@ p.copyright {
     padding: 20px 0;
     text-align: center;
     color: white;
+}
+.activo{
+  border: 5px solid yellow;
 }
