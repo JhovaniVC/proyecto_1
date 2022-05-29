@@ -1,102 +1,92 @@
-<?php include_once 'includes/templates/header.php' ?>
-
-
-
+<?php include_once 'includes/templates/header.php'; ?>
 <section class="seccion contenedor">
-    <h2>calendario de eventos</h2>
+    <h2>Calendario de Eventos</h2>
 
-</section> 
-
-
-
-
-<!-- Begin MailChimp Signup Form -->
-<link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-    #mc_embed_signup {
-        background: #fff;
-        clear: left;
-        font: 14px Helvetica, Arial, sans-serif;
+    <?php
+    try {
+        require_once('includes/funciones/bd_conexion.php');
+        $sql = " SELECT evento_id, nombre_evento, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado ";
+        $sql .= " FROM eventos ";
+        $sql .= " INNER JOIN categoria_evento ";
+        $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
+        $sql .= " INNER JOIN invitados ";
+        $sql .= " ON eventos.id_inv = invitados.invitado_id ";
+        $sql .= " ORDER BY evento_id ";
+        $resultado = $conn->query($sql);
+    } catch (\Exception $e) {
+        echo $e->getMessage();
     }
 
-    /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-          	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-</style>
-<div style="display:none;">
-    <div id="mc_embed_signup">
-        <form action="//easy-webdev.us11.list-manage.com/subscribe/post?u=b3bb37039b6fbf3db0c1a8331&amp;id=20463b69f2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-            <div id="mc_embed_signup_scroll">
-                <h2>Suscribete al Newsletter y no te pierdas nada de este evento</h2>
-                <div class="indicates-required"><span class="asterisk">*</span> es obligatorio</div>
-                <div class="mc-field-group">
-                    <label for="mce-EMAIL">Correo Electrónico <span class="asterisk">*</span>
-                    </label>
-                    <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+
+    ?>
+
+    <div class="calendario">
+        <?php
+        $calendario = array();
+        while ($eventos = $resultado->fetch_assoc()) {
+
+
+            // obtiene la fecha del evento
+
+            $fecha = $eventos['fecha_evento'];
+
+            $evento = array(
+                'titulo' => $eventos['nombre_evento'],
+                'fecha' => $eventos['fecha_evento'],
+                'hora' => $eventos['hora_evento'],
+                'categoria' => $eventos['cat_evento'],
+                'icono' =>  $eventos['icono'],
+                'invitado' => $eventos['nombre_invitado'] . " " . $eventos['apellido_invitado']
+            );
+
+            $calendario[$fecha][] = $evento;
+
+        ?>
+        <?php   } // while de fetch_assoc()  
+        ?>
+
+
+        <?php
+        // Imprime todos los eventos
+        foreach ($calendario as $dia => $lista_eventos) { ?>
+            <h3>
+                <i class="fa fa-calendar"></i>
+                <?php
+                // Unix
+                setlocale(LC_TIME, 'es_ES.UTF-8');
+                // Windows
+                setlocale(LC_TIME, 'spanish');
+
+                echo  strftime("%A, %d de %B del %Y", strtotime($dia)); ?>
+            </h3>
+            <?php foreach ($lista_eventos as $evento) { ?>
+                <div class="dia">
+                    <p class="titulo"><?php echo $evento['titulo']; ?></p>
+                    <p class="hora">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                        <?php echo $evento['fecha'] . " " . $evento['hora']; ?>
+                    </p>
+                    <p>
+                        <i class="fa <?php echo $evento['icono']; ?>" aria-hidden="true"></i>
+                        <?php echo $evento['categoria']; ?>
+                    </p>
+                    <p>
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <?php echo $evento['invitado']; ?>
+                    </p>
+                    </p>
+
                 </div>
-                <div id="mce-responses" class="clear">
-                    <div class="response" id="mce-error-response" style="display:none"></div>
-                    <div class="response" id="mce-success-response" style="display:none"></div>
-                </div>
-                <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-                <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_b3bb37039b6fbf3db0c1a8331_20463b69f2" tabindex="-1" value=""></div>
-                <div class="clear"><input type="submit" value="Suscribirse" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-            </div>
-        </form>
+
+            <?php } // fin foreach eventos 
+            ?>
+        <?php } // fin foreach de dias 
+        ?>
     </div>
-    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
-    <script type='text/javascript'>
-        (function($) {
-            window.fnames = new Array();
-            window.ftypes = new Array();
-            fnames[0] = 'EMAIL';
-            ftypes[0] = 'email';
-            fnames[1] = 'FNAME';
-            ftypes[1] = 'text';
-            fnames[2] = 'LNAME';
-            ftypes[2] = 'text';
-        }(jQuery));
-        var $mcj = jQuery.noConflict(true);
-    </script>
-    <!--End mc_embed_signup-->
-</div>
-</footer>
+    <?php
+    $conn->close();
+    ?>
 
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<script src="js/plugins.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-animateNumber/0.0.14/jquery.animateNumber.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"></script>
+</section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.8.2/js/lightbox.min.js"></script>
-<script src="js/main.js"></script>
-<script src="js/cotizador.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeSzprwFmUOSsAIf36sT9hONLvf3ReD_4&callback=initMap" async defer></script>
-
-<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-<script>
-    (function(b, o, i, l, e, r) {
-        b.GoogleAnalyticsObject = l;
-        b[l] || (b[l] =
-            function() {
-                (b[l].q = b[l].q || []).push(arguments)
-            });
-        b[l].l = +new Date;
-        e = o.createElement(i);
-        r = o.getElementsByTagName(i)[0];
-        e.src = 'https://www.google-analytics.com/analytics.js';
-        r.parentNode.insertBefore(e, r)
-    }(window, document, 'script', 'ga'));
-    ga('create', 'UA-XXXXX-X', 'auto');
-    ga('send', 'pageview');
-</script>
-
-<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script>
-<script type="text/javascript">
-    require(["mojo/signup-forms/Loader"], function(L) {
-        L.start({
-            "baseUrl": "mc.us11.list-manage.com",
-            "uuid": "b3bb37039b6fbf3db0c1a8331",
-            "lid": "20463b69f2"
-        })
-    })
-</script>
+<?php include_once 'includes/templates/footer.php'; ?>
