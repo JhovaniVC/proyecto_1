@@ -41,4 +41,3 @@ try {
 <?php
 $conn->close();
 ?>
-<?php include_once 'includes/templates/footer.php'; ?>
