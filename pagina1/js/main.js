@@ -161,7 +161,7 @@
 
 		// Mapa
 		if (document.getElementById('mapa')) {
-			var map = L.map('mapa').setView([19.580318, -88.044090 ], 13);
+			var map = L.map('mapa').setView([19.580318, -88.044090 ], 15);
 
 			L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
