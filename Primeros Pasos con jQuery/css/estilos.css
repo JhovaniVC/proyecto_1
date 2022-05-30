@@ -184,3 +184,6 @@ p.copyright {
 .activo{
   border: 5px solid yellow;
 }
+.fondorojo {
+  background-color: red;
+}
