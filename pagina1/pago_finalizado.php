@@ -15,9 +15,7 @@
         
         $payment = Payment::get($paymentId, $apiContext);
         $execution = new PaymentExecution();
-        $execution->setPayerId( $_GET['PayerID'] );
-
-        
+        $execution->setPayerId( $_GET['PayerID'] );        
         //Execute the payment
         $result = $payment->execute($execution, $apiContext);
     
