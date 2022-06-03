@@ -22,7 +22,7 @@
         // echo "<pre>";
         // var_dump(json_decode( $result ) );
         // echo "</pre>";
-        echo "<hr>";
+        // echo "<hr>";
 
         $respuesta = $result->transactions[0]->related_resources[0]->sale->state;
 
