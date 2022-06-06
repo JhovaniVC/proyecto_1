@@ -148,7 +148,7 @@
             <li>Todas las conferencias</li>
             <li>Todos los talleres</li>
           </ul>
-          <a href="#" class="button hollow">Comprar</a>
+          <a href="registro.php" class="button hollow">Comprar</a>
         </div>
       </li>
       <li>
@@ -160,7 +160,7 @@
             <li>Todas las conferencias</li>
             <li>Todos los talleres</li>
           </ul>
-          <a href="#" class="button">Comprar</a>
+          <a href="registro.php" class="button">Comprar</a>
         </div>
       </li>
 
@@ -173,7 +173,7 @@
             <li>Todas las conferencias</li>
             <li>Todos los talleres</li>
           </ul>
-          <a href="#" class="button hollow">Comprar</a>
+          <a href="registro.php" class="button hollow">Comprar</a>
         </div>
       </li>
     </ul>
