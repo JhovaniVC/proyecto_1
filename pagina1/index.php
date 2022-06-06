@@ -242,7 +242,7 @@
         <p id="horas" class="numero"></p> horas
       </li>
       <li>
-        <p id="minutos" class="numero"></p> minutos
+        <p id="minutos" class="numero"></p> minutos 
       </li>
       <li>
         <p id="segundos" class="numero"></p> segundos
